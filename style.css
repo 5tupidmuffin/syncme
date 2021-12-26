@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+body {
+  text-align: center;
+  background-color: black;
+  color: #fabd2f;
+  font-family: "Poppins", sans-serif;
+}
+
+h2 {
+  color: #d3869b;
+  font-weight: 200;
+}
+
+h2:hover {
+  cursor: crosshair;
+}
+
+span {
+  color: #fabd2f;
+}
+
+textarea {
+  text-align: center;
+  background-color: black;
+  color: #d79921;
+  font-family: "arial";
+  font-family: "Poppins", sans-serif;
+  border: 3px solid #fabd2f;
+  border-radius: 9px;
+
+  /* hide scrollbar for firefox */
+  scrollbar-width: none;
+}
+
+@media screen and (max-width: 500px) {
+  textarea {
+    height: 15em;
+    width: 23em;
+  }
+}
+
+textarea::-webkit-scrollbar {
+  /* hide scrollbar for chrome */
+  display: none;
+}
+
+#timestamp {
+  font-size: 25px;
+  margin-bottom: 4px;
+}
+
+#verse {
+  background-color: black;
+  height: 23px;
+  border: none;
+  border-bottom: 3px solid #fabd2f;
+  color: #fabd2f;
+  text-align: center;
+  font-size: 18px;
+  font-style: italic;
+}
+
+button {
+  border: none;
+  width: 70px;
+  height: 30px;
+  border-radius: 4px;
+  margin: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+}
+
+button:hover {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3) 0 0);
+  cursor: pointer;
+}
+
+#start {
+  background-color: #b8bb26;
+}
+
+#reset {
+  background-color: #fb4934;
+}
+
+#sync {
+  background-color: #fabd2f;
+}
+
+#cpbtn {
+  width: 300px;
+  background-color: #458588;
+}
+
+textarea,
+#verse:focus {
+  outline: none;
+}
