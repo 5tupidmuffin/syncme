@@ -58,7 +58,7 @@ start.onclick = () => {
     }
     stamp.textContent = `${mins < 9 ? "0" + mins : mins}:${
       secs < 9 ? "0" + secs : secs
-    }:${millis / 10 < 9 ? "0" + millis / 10 : millis / 10}`;
+    }.${millis / 10 < 9 ? "0" + millis / 10 : millis / 10}`;
   }, 10);
 };
 
@@ -66,6 +66,7 @@ reset.onclick = () => {
   isRunning = false;
   clearInterval(flag);
   stamp.textContent = "00:00:00";
+  synced_lyrics.value = "";
 };
 
 sync.onclick = () => {
