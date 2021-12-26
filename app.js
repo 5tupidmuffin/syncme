@@ -65,8 +65,9 @@ start.onclick = () => {
 reset.onclick = () => {
   isRunning = false;
   clearInterval(flag);
-  stamp.textContent = "00:00:00";
+  stamp.textContent = "00:00.00";
   synced_lyrics.value = "";
+  currentLine = 0;
 };
 
 sync.onclick = () => {
@@ -74,6 +75,11 @@ sync.onclick = () => {
     alert("add lyrics first!");
     return;
   }
+  if (!isRunning) {
+    alert("Start The Clock First!");
+    return;
+  }
+
   synced_lyrics.value += `[${stamp.textContent}] ${verse.value}\n`;
   displayVerse(lrc.split("\n"), (currentLine += 1));
 };
