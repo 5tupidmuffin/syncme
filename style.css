@@ -55,7 +55,7 @@ textarea {
   display: none;
 }
 
-@media only screen and (max-width: 411px) {
+@media only screen and (max-width: 500px) {
   textarea {
     height: 15em;
     width: 23em;
