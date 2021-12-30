@@ -39,7 +39,7 @@ lyrics.onpaste = () => {
 
 const displayModal = (message) => {
   if (isModalOpen) {
-    return false;
+    return;
   }
   isModalOpen = true;
   modal.textContent = message;
