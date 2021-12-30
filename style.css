@@ -152,3 +152,10 @@ textarea,
 #verse:focus {
   outline: none;
 }
+
+a {
+  font-style: italic;
+  color: #fabd2f;
+  text-decoration: none;
+  font-size: 15px;
+}

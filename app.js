@@ -83,9 +83,9 @@ start.onclick = () => {
       secs = 0;
       mins += 1;
     }
-    stamp.textContent = `${mins < 9 ? "0" + mins : mins}:${
-      secs < 9 ? "0" + secs : secs
-    }.${millis / 10 < 9 ? "0" + millis / 10 : millis / 10}`;
+    stamp.textContent = `${mins <= 9 ? "0" + mins : mins}:${
+      secs <= 9 ? "0" + secs : secs
+    }.${millis / 10 <= 9 ? "0" + millis / 10 : millis / 10}`;
   }, 10);
 };
 
