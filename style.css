@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Poppins:wght@500&display=swap");
 
+* {
+  margin: 0;
+}
+
 body {
   text-align: center;
   background-color: black;
@@ -38,10 +42,33 @@ textarea {
   scrollbar-width: none;
 }
 
+.modal {
+  padding: 20px;
+  z-index: 9999;
+  position: absolute;
+  bottom: 20px;
+  border: 2px solid #fabd2f;
+  background: black;
+  left: 0;
+  right: 0;
+  opacity: 0.8;
+  display: none;
+}
+
 @media only screen and (max-width: 411px) {
   textarea {
     height: 15em;
     width: 23em;
+  }
+
+  .modal {
+    padding: 1px;
+    left: 10%;
+    width: 80%;
+  }
+
+  #sync {
+    width: 300px;
   }
 }
 
@@ -50,9 +77,31 @@ textarea::-webkit-scrollbar {
   display: none;
 }
 
+input[type="file"] {
+  display: none;
+}
+
 #timestamp {
   font-size: 25px;
-  margin-bottom: 4px;
+  margin-top: 10px;
+}
+
+label {
+  height: 100px;
+  width: 200px;
+  border: 2px solid #fabd2f;
+  padding: 2px;
+  cursor: pointer;
+}
+
+label:hover {
+  color: black;
+  background: #fabd2f;
+}
+
+audio {
+  background-color: #fabd2f;
+  visibility: hidden;
 }
 
 #verse {
@@ -71,7 +120,7 @@ button {
   width: 70px;
   height: 30px;
   border-radius: 4px;
-  margin: 4px;
+  margin: 10px;
   font-size: 14px;
   font-weight: 600;
   color: white;

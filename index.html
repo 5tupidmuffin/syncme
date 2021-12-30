@@ -15,6 +15,16 @@
       placeholder="Paste Lyrics Here"
     ></textarea>
     <p id="timestamp">00:00.00</p>
+    <br />
+    <label for="up_audio">Upload Audio[Optional]</label><br />
+    <input
+      type="file"
+      id="up_audio"
+      name="up_audio"
+      accept="audio/mp3"
+      onchange="audioUploaded(event)"
+    />
+    <audio id="music" controls></audio><br />
     <button id="start">Start</button><button id="reset">Reset</button>
     <div>
       <input
@@ -30,9 +40,13 @@
       cols="35"
       rows="10"
       placeholder="Timed Lyrics Will Appear Here"
+      readonly
     ></textarea
     ><br />
     <button id="cpbtn">Copy Synced Lyrics!</button>
+    <div class="modal">
+      Hit Start Button to Start Timer and Audio simultaneously
+    </div>
     <script src="./app.js"></script>
   </body>
 </html>

@@ -15,12 +15,17 @@ let flag = null;
 let isRunning = false;
 let lrc = "";
 let currentLine = 0;
+const player = document.querySelector("#music");
+const label = document.querySelector("label");
+const modal = document.querySelector(".modal");
+let isModalOpen = false;
 
 const displayVerse = (lyricsArray, lineNo) => {
   if (lyricsArray[lineNo]) {
     verse.value = lyricsArray[lineNo];
   } else {
     clearInterval(flag);
+    isRunning = false;
   }
 };
 
@@ -32,11 +37,33 @@ lyrics.onpaste = () => {
   }, 20);
 };
 
+const displayModal = (message) => {
+  if (isModalOpen) {
+    return false;
+  }
+  isModalOpen = true;
+  modal.textContent = message;
+  modal.style.display = "inherit";
+  setTimeout(() => {
+    modal.style.display = "none";
+    isModalOpen = false;
+  }, 5 * 1000);
+};
+
 start.onclick = () => {
   if (!lyrics.value) {
     alert("add lyrics first!");
     return;
   }
+
+  if (isRunning) {
+    return;
+  }
+
+  if (player.currentSrc) {
+    player.play();
+  }
+
   setTimeout(() => {
     lrc = lyrics.value;
     displayVerse(lrc.split("\n"), currentLine);
@@ -68,6 +95,10 @@ reset.onclick = () => {
   stamp.textContent = "00:00.00";
   synced_lyrics.value = "";
   currentLine = 0;
+  if (player.currentSrc) {
+    player.currentTime = 0;
+    player.pause();
+  }
 };
 
 sync.onclick = () => {
@@ -76,18 +107,31 @@ sync.onclick = () => {
     return;
   }
   if (!isRunning) {
-    alert("Start The Clock First!");
     return;
   }
 
   synced_lyrics.value += `[${stamp.textContent}] ${verse.value}\n`;
   displayVerse(lrc.split("\n"), (currentLine += 1));
+  synced_lyrics.scrollTop = synced_lyrics.scrollHeight;
 };
 
 cpbtn.onclick = () => {
   if (synced_lyrics.value) {
     navigator.clipboard.writeText(synced_lyrics.value);
+    displayModal("Synced Lyrics Copied!");
   } else {
     alert("Nothing to Copy!");
   }
+};
+
+// audio upload event
+const audioUploaded = (e) => {
+  player.src = URL.createObjectURL(e.target.files[0]);
+  player.load();
+  label.textContent = "Uploaded!";
+  player.style.visibility = "visible";
+  displayModal("Hit Start Button to Start Timer and Audio simultaneously");
+  player.onload = function () {
+    URL.revokeObjectURL(output.src); // free memory
+  };
 };
