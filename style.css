@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Poppins:wght@500&display=swap");
 
 body {
   text-align: center;
@@ -9,7 +9,10 @@ body {
 
 h2 {
   color: #d3869b;
-  font-weight: 200;
+  font-weight: 600;
+  font-family: "Oswald", sans-serif;
+  font-style: italic;
+  color: white;
 }
 
 h2:hover {
@@ -17,10 +20,12 @@ h2:hover {
 }
 
 span {
-  color: #fabd2f;
+  color: #fb4933;
 }
 
 textarea {
+  height: 10rem;
+  width: 40rem;
   text-align: center;
   background-color: black;
   color: #d79921;
@@ -33,7 +38,7 @@ textarea {
   scrollbar-width: none;
 }
 
-@media screen and (max-width: 500px) {
+@media only screen and (max-width: 411px) {
   textarea {
     height: 15em;
     width: 23em;
