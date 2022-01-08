@@ -132,6 +132,6 @@ const audioUploaded = (e) => {
   player.style.visibility = "visible";
   displayModal("Hit Start Button to Start Timer and Audio simultaneously");
   player.onload = function () {
-    URL.revokeObjectURL(output.src); // free memory
+    URL.revokeObjectURL(player.src); // free memory
   };
 };

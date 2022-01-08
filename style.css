@@ -47,11 +47,11 @@ textarea {
   z-index: 9999;
   position: absolute;
   bottom: 20px;
-  border: 2px solid #fabd2f;
-  background: black;
+  border-radius: 5px;
+  background: #fabd2f;
+  color: black;
   left: 0;
   right: 0;
-  opacity: 0.8;
   display: none;
 }
 
